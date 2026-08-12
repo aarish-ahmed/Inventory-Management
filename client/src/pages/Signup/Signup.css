@@ -1,0 +1,177 @@
+:root {
+  --bg-color: #f4f7fa;
+  --card-bg: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --success-color: #38a169;
+  --border-color-green: #48bb78; 
+  --danger-color: #e53e3e;
+  --danger-bg: #fff5f5;
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --border-radius: 12px;
+}
+
+.auth-wrapper {
+  background-color: var(--bg-color);
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  background-color: var(--card-bg);
+  width: 100%;
+  max-width: 400px;
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border-color-green);
+  text-align: center;
+}
+
+.auth-card h2 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.input-group input {
+  background-color: #ffffff; 
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--border-color-green);
+  box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.2);
+}
+
+.input-group input::placeholder {
+  color: #a0aec0;
+}
+
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.auth-button {
+  background-color: var(--border-color-green);
+  color: #ffffff;
+  border: none;
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-family: inherit;
+  
+  /* Added to keep spinner centered and prevent button height collapse */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+}
+
+.auth-button:hover:not(:disabled) {
+  background-color: var(--success-color);
+  transform: translateY(-2px);
+}
+
+.auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-message.error {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background-color: var(--danger-bg);
+  color: var(--danger-color);
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* New Spinner CSS */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Container for the bottom text */
+.auth-card > p {
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Styling the actual Links */
+.auth-card > p a {
+  color: #48bb78; /* Matches your primary green theme */
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 6px; /* Adds spacing so they don't squish together */
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* Hover effect for the Links */
+.auth-card > p a:hover {
+  color: #38a169; 
+  text-decoration: underline;
+}

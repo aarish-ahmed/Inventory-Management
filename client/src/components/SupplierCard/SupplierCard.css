@@ -1,0 +1,82 @@
+/* Main container for the list */
+.supplier-card-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grid layout for precise column alignment */
+.supplier-header,
+.supplier-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr 2.5fr 1fr;
+  gap: 15px;
+  padding: 16px 24px;
+  align-items: center;
+}
+
+/* Header specific styles */
+.supplier-header {
+  background-color: #f7fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* List container resets */
+.supplier-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Row specific styles */
+.supplier-row {
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s ease;
+}
+
+.supplier-row:last-child {
+  border-bottom: none;
+}
+
+.supplier-row:hover {
+  background-color: #f8fafc;
+}
+
+/* Text styling inside rows */
+.supplier-data {
+  color: #4a5568;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+/* Ensure actions column content is centered/aligned */
+.action-column {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Delete Button Styling */
+.supplier-delete-btn {
+  background-color: #fc8181;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.supplier-delete-btn:hover {
+  background-color: #e53e3e;
+}

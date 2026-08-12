@@ -1,0 +1,59 @@
+/* Main container for the list */
+.transaction-card-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grid layout for precise column alignment */
+.transaction-header,
+.transaction-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1.5fr;
+  gap: 15px;
+  padding: 16px 24px;
+  align-items: center;
+}
+
+/* Header specific styles */
+.transaction-header {
+  background-color: #f7fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* List container resets */
+.transaction-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Row specific styles */
+.transaction-row {
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-row:last-child {
+  border-bottom: none;
+}
+
+.transaction-row:hover {
+  background-color: #f8fafc;
+}
+
+/* Text styling inside rows */
+.transaction-data {
+  color: #4a5568;
+  font-size: 15px;
+  word-break: break-word;
+}

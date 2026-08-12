@@ -1,0 +1,51 @@
+/* Container matching the light theme from your other pages */
+.suppliers-page-container {
+  min-height: 100vh;
+  background-color: #f4f7f6;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  color: #2d3748;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Grouping the bottom action button */
+.suppliers-actions-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Primary Action Button (Matches previous forms and product page) */
+.add-supplier-btn {
+  background-color: #48bb78;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  min-width: 200px;
+}
+
+.add-supplier-btn:hover {
+  background-color: #38a169;
+}
+
+/* Error Message */
+.error-message {
+  color: #e53e3e;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}

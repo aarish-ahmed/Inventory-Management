@@ -1,0 +1,132 @@
+:root {
+  --bg-color: #f4f7fa;
+  --card-bg: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --success-color: #38a169;
+  --success-bg: #f0fff4;
+  --danger-color: #e53e3e;
+  --danger-bg: #fff5f5;
+  --border-color-green: #48bb78; 
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --border-radius: 12px;
+}
+
+
+.dashboard-wrapper {
+  background-color: var(--bg-color);
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden; 
+}
+
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 10px;
+  flex-shrink: 0; 
+}
+
+.dashboard-header h2 {
+  color: var(--text-primary);
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+
+.dashboard-content {
+  flex: 1;
+  min-height: 0; 
+}
+
+/* Grid forced into a 3x2 layout that stretches */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows */
+  gap: 2rem;
+  height: 80%; /* Stretches cards to fill the entire content area */
+}
+
+/* Cards let the grid dictate their height instead of padding */
+.stat-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; /* Centers content perfectly vertically */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid var(--border-color-green); 
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.stat-value {
+  color: var(--text-primary);
+  font-size: 3.5rem; 
+  margin: 0;
+  font-weight: 700;
+}
+
+.highlight-success {
+  background-color: var(--success-bg);
+  border-color: var(--success-color); 
+}
+
+.highlight-success .stat-value {
+  color: var(--success-color);
+}
+
+.highlight-danger {
+  background-color: var(--danger-bg);
+  border-color: var(--danger-color); 
+}
+
+.highlight-danger .stat-value {
+  color: var(--danger-color);
+}
+
+/* Break layout on small screens so it doesn't get unreadable */
+@media (max-width: 900px) {
+  .dashboard-wrapper {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: 1fr; /* Stack into 1 column */
+    grid-template-rows: auto;
+  }
+  
+  .stat-card {
+    padding: 3rem 2rem; /* Restore padding for mobile stacking */
+  }
+}

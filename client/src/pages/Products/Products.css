@@ -1,0 +1,337 @@
+/* ================================
+   PRODUCTS PAGE
+================================ */
+
+.products-page-container {
+  min-height: 100vh;
+  background-color: #f4f7f6;
+  padding: 35px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   TITLE
+================================ */
+
+.products-title {
+  text-align: center;
+  color: #2d3748;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 30px;
+}
+
+
+/* ================================
+   PRODUCTS GRID
+   2 CARDS PER ROW
+================================ */
+
+.products-grid {
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+/* ================================
+   PRODUCT CARD
+================================ */
+
+.products-grid > * {
+  min-width: 0;
+}
+
+
+/*
+   If your ProductCard root element
+   has one of these common classes,
+   these rules make it compact.
+*/
+
+.products-grid .product-card,
+.products-grid .product-card-container,
+.products-grid .products-container {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   IMAGE
+================================ */
+
+.products-grid img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+/* ================================
+   PRODUCT INFORMATION
+================================ */
+
+.products-grid h1,
+.products-grid h2,
+.products-grid h3,
+.products-grid h4 {
+  margin-top: 0;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+/*
+   Keep buttons narrow.
+   They should NOT stretch across
+   the entire card.
+*/
+
+.products-grid button {
+  width: auto;
+  min-width: 110px;
+  max-width: 150px;
+
+  padding: 10px 18px;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* Edit */
+
+.products-grid button.edit-btn,
+.products-grid button:first-of-type {
+  background-color: #3b73d1;
+  color: white;
+}
+
+.products-grid button.edit-btn:hover,
+.products-grid button:first-of-type:hover {
+  background-color: #2f63bd;
+}
+
+
+/* Delete */
+
+.products-grid button.delete-btn,
+.products-grid button:nth-of-type(2) {
+  background-color: #df4b4b;
+  color: white;
+}
+
+.products-grid button.delete-btn:hover,
+.products-grid button:nth-of-type(2):hover {
+  background-color: #c93d3d;
+}
+
+
+/* Sell */
+
+.products-grid button.sell-btn,
+.products-grid button:nth-of-type(3) {
+  background-color: #20a957;
+  color: white;
+}
+
+.products-grid button.sell-btn:hover,
+.products-grid button:nth-of-type(3):hover {
+  background-color: #19934a;
+}
+
+
+/* ================================
+   ACTION BUTTON CONTAINER
+================================ */
+
+.products-grid .product-actions,
+.products-grid .actions,
+.products-grid .button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  gap: 8px;
+
+  width: 130px;
+  flex-shrink: 0;
+}
+
+
+/* ================================
+   ADD PRODUCT + PAGINATION
+================================ */
+
+.products-actions-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 35px;
+  gap: 18px;
+}
+
+
+.add-product-btn {
+  background-color: #48bb78;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 11px 22px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.add-product-btn:hover {
+  background-color: #38a169;
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   PAGINATION
+================================ */
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+
+.pagination-btn {
+  width: auto;
+
+  background-color: #2d3748;
+  color: #ffffff;
+
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+
+  padding: 9px 16px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+              opacity 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #4a5568;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.pagination-page-indicator {
+  background-color: transparent;
+
+  color: #2d3748;
+
+  border: none;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  padding: 8px 12px;
+
+  cursor: default;
+}
+
+
+/* ================================
+   ERROR
+================================ */
+
+.products-error-message {
+  color: #e53e3e;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  margin-top: 20px;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .products-page-container {
+    padding: 25px 10px;
+  }
+
+  .products-title {
+    font-size: 25px;
+    margin-bottom: 22px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .products-grid button {
+    min-width: 90px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .products-grid .product-actions,
+  .products-grid .actions,
+  .products-grid .button-container {
+    width: 100px;
+  }
+
+}
