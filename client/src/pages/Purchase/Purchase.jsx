@@ -579,7 +579,7 @@ const Purchase = () => {
 
                       </div>
 
-                  )}
+                  ))}
 
                 </div>
 

@@ -27,9 +27,12 @@ const loginHandler = async (req, res) => {
             process.env.JWT_SECRET
         )
             console.log(jwtToken)
-            res.cookie('Token',jwtToken,{
-                maxAge:7*24*60*60*1000,
-            })
+            res.cookie('Token', jwtToken, {
+  maxAge: 24 * 60 * 60 * 1000,
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+});
             return res.status(200).json({
                 user:existingUser,
                 message:'login successful'
