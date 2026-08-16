@@ -2,7 +2,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProductsApi } from "../../api/productApi";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../context/AuthContext";
 import "./Products.css";
 
 const Products = () => {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { dashboardApi } from "../../api/userApi";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../context/AuthContext";
 import {
   LineChart,
   Line,

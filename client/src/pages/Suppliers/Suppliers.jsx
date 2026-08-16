@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SupplierCard from "../../components/SupplierCard/SupplierCard";
 import { getSupplierList } from "../../api/supplierApi";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../context/AuthContext";
 import "./Suppliers.css";
 
 const Suppliers = () => {

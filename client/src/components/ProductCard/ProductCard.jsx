@@ -1,4 +1,4 @@
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../context/AuthContext";
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../api/apiUrl";

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { loginApi } from "../../api/userApi"
 import './Login.css'
-import { useAuth } from "../../context/authContext"
+import { useAuth } from "../../context/AuthContext"
 
 const Login = () => {
   const [message, setMessage] = useState()

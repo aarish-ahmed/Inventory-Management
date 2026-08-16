@@ -1,4 +1,4 @@
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../context/AuthContext";
 import "./SupplierCard.css";
 import { API_URL } from "../../api/apiUrl";
 
