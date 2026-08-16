@@ -7,7 +7,7 @@ const deleteProductHandler = async (req, res) => {
    
     await Product.findOneAndDelete({
       _id:productId,
-      user:req.user.id
+      
     });
     const newProductList = await Product.find(
   {user:req.user.id}

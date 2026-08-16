@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductForm from "../../components/ProductForm/ProductForm";
 import { useParams, useNavigate } from "react-router-dom";
 import { API_URL } from "../../api/apiUrl";
+import * as productApi from "../../api/productApi";
 
 const Purchase = () => {
   // ================================
@@ -47,7 +48,7 @@ const Purchase = () => {
         let totalPages = 1;
 
         do {
-          const { res, data } = await getProductsApi(currentPage);
+          const { res, data } = await productApi.getProductsApi(currentPage);
 
           if (!res.ok) {
             console.log(data.message);
@@ -199,7 +200,7 @@ const Purchase = () => {
 
     try {
       const { res, data } =
-        await purchaseProductApi(
+        await productApi.purchaseProductApi(
           selectedProduct._id,
           quantity,
           selectedWarehouse,
@@ -222,7 +223,7 @@ const Purchase = () => {
 
         do {
           const result =
-            await getProductsApi(currentPage);
+            await productApi.getProductsApi(currentPage);
 
           if (!result.res.ok) break;
 
