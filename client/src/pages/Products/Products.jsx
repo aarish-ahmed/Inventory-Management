@@ -10,8 +10,8 @@ const Products = () => {
   const { user } = useAuth();
 
   const [page, setPage] = useState(1);
-  const [totalPage, setTotalPage] = useState();
-  const [message, setMessage] = useState();
+  const [totalPage, setTotalPage] = useState(1);
+  const [message, setMessage] = useState("");
   const [products, setProduct] = useState([]);
 
   const getProductsHandler = async () => {
@@ -20,9 +20,15 @@ const Products = () => {
     if (res.ok) {
       setProduct(data.products);
       setTotalPage(data.totalPages);
+      setMessage("");
     } else {
       console.log(data.message);
+   
       setMessage(data.message);
+
+setTimeout(() => {
+  setMessage("");
+}, 3000);
     }
   };
 
@@ -37,13 +43,34 @@ const Products = () => {
   return (
     <div className="products-page-container">
 
-      <h1 className="products-title">
-        Products
-      </h1>
+      {/* HEADER SECTION */}
+      <div className="products-header">
+
+        <h1 className="products-title">
+          Products
+        </h1>
+
+        {user?.role === "admin" && (
+          <button
+            className="add-product-btn"
+            onClick={handleClick}
+          >
+            Add New Product
+          </button>
+        )}
+
+      </div>
+
+      {/* ERROR / MESSAGE */}
+      {message && (
+  <div className="product-form-message">
+    {message}
+  </div>
+)}
 
       {user && (
         <>
-          {/* Products */}
+          {/* PRODUCTS */}
           <div className="products-grid">
             <ProductCard
               products={products}
@@ -52,17 +79,9 @@ const Products = () => {
             />
           </div>
 
-          {/* Bottom Actions */}
+          {/* PAGINATION */}
           <div className="products-actions-wrapper">
 
-            <button
-              className="add-product-btn"
-              onClick={handleClick}
-            >
-              Add New Product
-            </button>
-
-            {/* Pagination */}
             <div className="pagination-container">
 
               <button
@@ -73,12 +92,9 @@ const Products = () => {
                 Previous
               </button>
 
-              <button
-                className="pagination-page-indicator"
-                disabled
-              >
+              <span className="pagination-page-indicator">
                 {page}
-              </button>
+              </span>
 
               <button
                 className="pagination-btn"
@@ -89,14 +105,9 @@ const Products = () => {
               </button>
 
             </div>
+
           </div>
         </>
-      )}
-
-      {message && (
-        <p className="products-error-message">
-          {message}
-        </p>
       )}
 
     </div>

@@ -3,16 +3,20 @@ import mongoose from "mongoose";
 const productSchema = mongoose.Schema(
   {
     user: {
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'User',
-      required:true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     supplier: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Supplier",
     },
-    image:{
-      type:String,
+    sku: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
     },
     category: {
       type: String,
@@ -26,10 +30,19 @@ const productSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
-    stock: {
-      type: Number,
-      required: true,
-    },
+    warehouses: [
+      {
+        name: {
+          type: String,
+        },
+        location: {
+          type: String,
+        },
+        stock: {
+          type: Number,
+        },
+      },
+    ],
   },
   { timestamps: true },
 );

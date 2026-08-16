@@ -1,22 +1,21 @@
+import { useAuth } from "../../context/authContext";
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ products, setProduct, showActions }) => {
+  const {user}=useAuth()
   const navigate = useNavigate();
 
   const handleDelete = async (productId) => {
-    const res = await fetch(
-      `http://localhost:5000/product/delete/${productId}`,
-      {
-        method: "DELETE",
-        credentials: "include",
-      }
-    );
-
+    const res = await fetch(`http://localhost:5000/product/delete/${productId}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+    
     const data = await res.json();
-
+    
     if (res.ok) {
-      setProduct(data);
+      setProduct((prev) => prev.filter((product) => product._id !== productId));
     } else {
       console.log(data.message);
     }
@@ -35,74 +34,73 @@ const ProductCard = ({ products, setProduct, showActions }) => {
       {products.map((product) => (
         <div className="product-card" key={product._id}>
 
-          {/* Product Image */}
+          {/* COLUMN 1: Product Image */}
           <div className="product-image">
-            <img
-              src={product.image}
-              alt={product.productname}
-            />
+            <img src={product.image} alt={product.productname} />
           </div>
 
-          {/* Product Information */}
+          {/* COLUMN 2: Product Information */}
           <div className="product-content">
-
             <h2>{product.productname}</h2>
-
+            
             <p>
-              <strong>Supplier:</strong>{" "}
-              {product.supplier?.name || "N/A"}
+              <strong>Supplier:</strong> {product.supplier?.name || "N/A"}
             </p>
-
+            
             <p>
               <strong>Category:</strong> {product.category}
             </p>
-
+            
             <p>
               <strong>Price:</strong> ৳{product.price}
             </p>
-
             <p>
-              <strong>Stock:</strong>{" "}
-              <span
-                className={
-                  product.stock === 0
-                    ? "stock-out"
-                    : product.stock <= 10
-                    ? "stock-low"
-                    : "stock-good"
-                }
-              >
-                {product.stock}
-              </span>
+              <strong>SKU</strong> {product.sku}
             </p>
-
           </div>
 
-          {/* Actions */}
+          {/* COLUMN 3: Warehouse Stock */}
+          <div className="warehouse-stock-list">
+            
+            {/* NEW TWO-COLUMN HEADER */}
+            <div className="warehouse-stock-header">
+              <span>Warehouse</span>
+              <span>Stock</span>
+            </div>
+            
+            {product.warehouses?.map((warehouse) => (
+              <div key={warehouse._id || warehouse.name} className="warehouse-stock">
+                <span>{warehouse.name}</span>
+                <span className={warehouse.stock === 0 ? "stock-out" : warehouse.stock <= 10 ? "stock-low" : "stock-good"}>
+                  {warehouse.stock}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* COLUMN 4: Actions */}
           {showActions && (
             <div className="product-actions">
-
-              <button
-                className="edit-btn"
-                onClick={() => handleUpdate(product._id)}
-              >
+              {user.role==='admin' &&
+          <>
+         <button className="edit-btn" onClick={() => handleUpdate(product._id)}>
                 Edit
               </button>
-
-              <button
-                className="delete-btn"
-                onClick={() => handleDelete(product._id)}
-              >
+          </>
+        }
+              {user.role==='admin' &&
+          <>
+         <button className="delete-btn" onClick={() => handleDelete(product._id)}>
                 Delete
               </button>
-
-              <button
-                className="sell-btn"
-                onClick={() => handleSell(product._id)}
-              >
-                Sell
+          </>
+        }
+              
+              <button className="sell-btn" onClick={() => handleSell(product._id)}>
+                Make Sale
               </button>
-
+              
+              
             </div>
           )}
 

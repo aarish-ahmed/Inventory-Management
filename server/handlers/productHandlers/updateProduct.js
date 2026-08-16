@@ -15,13 +15,15 @@ const updateProductHandler = async (req, res) => {
         const uploadImage= await cloudinary.uploader.upload(req.file.path)
         imageUrl=uploadImage.secure_url
     }
+      const warehouses = JSON.parse(req.body.warehouses);
     const updatedProduct = await Product.findByIdAndUpdate(
       productId,
       {
         productname: req.body.productname,
+        sku:req.body.sku,
         category: req.body.category,
         price: req.body.price,
-        stock: req.body.stock,
+        warehouses,
         supplier: req.body.supplier,
         image: imageUrl,
       },

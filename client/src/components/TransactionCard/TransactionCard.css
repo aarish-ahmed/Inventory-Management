@@ -1,59 +1,222 @@
-/* Main container for the list */
+/* ================================
+   MAIN CONTAINER
+================================ */
+
 .transaction-card-container {
+  width: 100%;
   background-color: #ffffff;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  overflow-x: auto;
   margin-bottom: 24px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Grid layout for precise column alignment */
-.transaction-header,
-.transaction-row {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr 1fr 1.5fr;
-  gap: 15px;
-  padding: 16px 24px;
+
+/* ================================
+   HEADER + ROW
+================================ */
+
+.transaction-card-container .transaction-header,
+.transaction-card-container .transaction-row {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(150px, 1.5fr)
+    minmax(200px, 2fr)
+    minmax(90px, 0.8fr)
+    minmax(120px, 1.1fr)
+    minmax(120px, 1.2fr)
+    minmax(100px, 1fr)
+    minmax(110px, 1fr) !important;
+
+  grid-template-rows: 1fr !important;
+
+  grid-auto-flow: column !important;
+
+  gap: 20px;
+
   align-items: center;
+
+  padding: 16px 24px;
+
+  min-width: 1100px;
+
+  width: 100%;
+
+  box-sizing: border-box;
 }
 
-/* Header specific styles */
-.transaction-header {
-  background-color: #f7fafc;
+
+/* ================================
+   HEADER
+================================ */
+
+.transaction-card-container .transaction-header {
+  background-color: #1f2937;
+
   border-bottom: 2px solid #e2e8f0;
+
+  color: #ffffff;
+
   font-weight: 700;
-  color: #2d3748;
+
   font-size: 14px;
+
   text-transform: uppercase;
+
   letter-spacing: 0.5px;
 }
 
-/* List container resets */
+
+/* ================================
+   LIST
+================================ */
+
 .transaction-list {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  min-width: 1100px;
 }
 
-/* Row specific styles */
-.transaction-row {
+
+/* ================================
+   ROW
+================================ */
+
+.transaction-card-container .transaction-row {
+  background-color: #ffffff;
+
   border-bottom: 1px solid #edf2f7;
+
   transition: background-color 0.2s ease;
 }
 
-.transaction-row:last-child {
-  border-bottom: none;
-}
-
-.transaction-row:hover {
+.transaction-card-container .transaction-row:hover {
   background-color: #f8fafc;
 }
 
-/* Text styling inside rows */
-.transaction-data {
+.transaction-card-container .transaction-row:last-child {
+  border-bottom: none;
+}
+
+
+/* ================================
+   DATA
+================================ */
+
+.transaction-card-container .transaction-data {
   color: #4a5568;
+
   font-size: 15px;
-  word-break: break-word;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   TYPE
+================================ */
+
+.transaction-type {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: capitalize;
+
+  white-space: nowrap;
+}
+
+.purchase-type {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.sale-type {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+
+/* ================================
+   RECEIPT
+================================ */
+
+.receipt-btn {
+  border: none;
+
+  padding: 8px 15px;
+
+  border-radius: 6px;
+
+  background-color: #20a85a;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: 0.2s ease;
+}
+
+.receipt-btn:hover {
+  background-color: #178c49;
+}
+
+.receipt-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+
+/* ================================
+   EMPTY
+================================ */
+
+.no-transaction {
+  padding: 30px;
+
+  text-align: center;
+
+  color: #718096;
+
+  font-size: 15px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+  .transaction-card-container {
+    overflow-x: auto;
+  }
+
+  .transaction-card-container .transaction-header,
+  .transaction-card-container .transaction-row {
+    min-width: 1100px;
+  }
 }

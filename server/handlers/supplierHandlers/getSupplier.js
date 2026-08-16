@@ -4,7 +4,7 @@ const getSupplierHandler = async (req, res) => {
     console.log("USER ID:", req.user.id);
 
     const supplierList = await Supplier.find({
-      user:req.user.id,
+      
       isActive:true,
     });
     console.log('supplierlist',supplierList)

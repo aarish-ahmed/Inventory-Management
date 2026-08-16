@@ -1,6 +1,8 @@
+import { useAuth } from "../../context/authContext";
 import "./SupplierCard.css";
 
 const SupplierCard = ({ suppliers, setSupplier }) => {
+  const {user}=useAuth()
   const handleDelete = async (supplierId) => {
   const res = await fetch(
     `http://localhost:5000/supplier/delete/${supplierId}`,
@@ -38,12 +40,16 @@ const SupplierCard = ({ suppliers, setSupplier }) => {
             <span className="supplier-data">{supplier.contact?.phone || "N/A"}</span>
             <span className="supplier-data">{supplier.contact?.email || "N/A"}</span>
             <span className="action-column">
+              {user?.role==='admin' &&
+              <>
               <button 
                 className="supplier-delete-btn" 
                 onClick={() => handleDelete(supplier._id)}
               >
                 Delete
               </button>
+              </>
+              }
             </span>
           </li>
         ))}

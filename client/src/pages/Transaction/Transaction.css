@@ -16,3 +16,75 @@
   margin-top: 0;
   margin-bottom: 30px;
 }
+/* ================================
+   TRANSACTION FILTER
+================================ */
+
+.transaction-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filter-btn {
+  padding: 9px 22px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #f3f4f6;
+}
+
+
+/* Active */
+
+.filter-btn.active {
+  background: #1f2937;
+  color: #ffffff;
+  border-color: #1f2937;
+}
+
+
+/* Active Sale */
+
+.filter-btn.active.sale-filter {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+
+/* Active Purchase */
+
+.filter-btn.active.purchase-filter {
+  background: #20a85a;
+  border-color: #20a85a;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .transaction-filter {
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    flex: 1;
+    min-width: 90px;
+  }
+}

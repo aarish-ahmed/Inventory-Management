@@ -66,6 +66,7 @@ export const dashboardApi = async () => {
       credentials: 'include',
     })
     const data = await res.json()
+    console.log('dashboard data',data)
     return {res,data}
 };
 
@@ -89,8 +90,49 @@ export const getCurrentUserApi = async () => {
 
   
     const data = await res.json();
-    console.log('api data',data)
+    
   
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return {data};
+};
+
+export const addMemberApi = async (memberData) => {
+  const res = await fetch("http://localhost:5000/user/add-member", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(memberData),
+
+  });
+
+  
+    const data = await res.json();
+    
+   console.log('addmemberdata',data)
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return {res,data};
+};
+
+export const getAllUserApi = async () => {
+  const res = await fetch("http://localhost:5000/user/all", {
+    method: "GET",
+    credentials: "include",
+  });
+
+    
+    const data = await res.json();
+    
+  console.log('getAlluser',data)
 
   if (!res.ok) {
     throw new Error(data.message);

@@ -11,10 +11,11 @@ const signupHandler = async (req, res) => {
         message: result.error.issues[0].message,
       });
     }
+
     const verificationCode = Math.floor(
       100000 + Math.random() * 900000,
     ).toString();
-     const verificationExpires = new Date(Date.now() + 2 * 60 * 1000);
+    const verificationExpires = new Date(Date.now() + 2 * 60 * 1000);
     const { email, username, password } = result.data;
     console.log(result.data);
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -47,7 +48,7 @@ const signupHandler = async (req, res) => {
       isVerified: false,
       verificationExpires,
     });
-    await sendEmail(email, verificationCode);
+    await sendEmail(email,verificationCode);
     res.status(201).json({
       message: "otp sent",
       email: email,

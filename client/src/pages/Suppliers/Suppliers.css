@@ -1,51 +1,135 @@
-/* Container matching the light theme from your other pages */
+/* ================================
+   SUPPLIERS PAGE
+================================ */
+
 .suppliers-page-container {
   min-height: 100vh;
   background-color: #f4f7f6;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 28px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
-/* Page Title */
-.page-title {
-  text-align: center;
-  color: #2d3748;
-  font-size: 28px;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 30px;
-}
 
-/* Grouping the bottom action button */
-.suppliers-actions-wrapper {
+/* ================================
+   HEADER
+================================ */
+
+.suppliers-header {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto 30px;
+
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 20px;
+
+  position: relative;
 }
 
-/* Primary Action Button (Matches previous forms and product page) */
+
+/* ================================
+   TITLE
+================================ */
+
+.page-title {
+  margin: 0;
+
+  color: #2d3748;
+  font-size: 32px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* ================================
+   ADD SUPPLIER BUTTON
+================================ */
+
 .add-supplier-btn {
+  position: absolute;
+  right: 0;
+
   background-color: #48bb78;
   color: #ffffff;
+
   border: none;
   border-radius: 6px;
-  padding: 12px 24px;
+
+  padding: 13px 22px;
+
   font-size: 16px;
   font-weight: 600;
+
   cursor: pointer;
-  transition: background-color 0.2s;
-  min-width: 200px;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .add-supplier-btn:hover {
   background-color: #38a169;
+  transform: translateY(-1px);
 }
 
-/* Error Message */
+.add-supplier-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ================================
+   ERROR MESSAGE
+================================ */
+
 .error-message {
-  color: #e53e3e;
-  text-align: center;
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 20px auto 0;
+
+  box-sizing: border-box;
+
+  padding: 13px 18px;
+
+  background-color: #fff5f5;
+  border: 1px solid #fecaca;
+  border-left: 4px solid #e53e3e;
+
+  border-radius: 7px;
+
+  color: #c53030;
+
   font-size: 14px;
-  margin-top: 20px;
+  font-weight: 600;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+  .suppliers-page-container {
+    padding: 25px 15px;
+  }
+
+  .suppliers-header {
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 25px;
+  }
+
+  .page-title {
+    font-size: 27px;
+  }
+
+  .add-supplier-btn {
+    position: static;
+    width: 100%;
+    max-width: 300px;
+  }
+
 }

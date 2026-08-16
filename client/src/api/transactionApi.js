@@ -16,3 +16,16 @@ export const getTransaction = async (setTransaction) => {
         }
       
 };
+
+export const getTransactionReceiptApi = async (id) => {
+  const res = await fetch(
+    `http://localhost:5000/transaction/receipt/${id}`,
+    {
+      method: "GET",
+      credentials: "include",
+    }
+  );
+
+  return res;
+};
+

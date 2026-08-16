@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema=mongoose.Schema({
+const userSchema= mongoose.Schema({
     email:{
         type:String,
         unique:true,
@@ -14,9 +14,18 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    role:{
+        type: String,
+    enum:[
+        'admin',
+        'staff',
+     ],
+
+    default:'staff'
+    },
     isVerified:{
         type:Boolean,
-        default:false,
+        default:true,
     },
     verificationCode:{
         type:String,
