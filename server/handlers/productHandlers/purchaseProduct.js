@@ -43,7 +43,7 @@ const purchaseProductHandler = async (req, res) => {
     // Find product belonging to logged-in user
     const product = await Product.findOne({
       _id: productId,
-      user: req.user.id,
+     
     });
 
     if (!product) {
