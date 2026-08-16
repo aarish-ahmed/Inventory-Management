@@ -1,11 +1,12 @@
 import { useAuth } from "../../context/authContext";
 import "./SupplierCard.css";
+import { API_URL } from "../../api/apiUrl";
 
 const SupplierCard = ({ suppliers, setSupplier }) => {
   const {user}=useAuth()
   const handleDelete = async (supplierId) => {
   const res = await fetch(
-    `http://localhost:5000/supplier/delete/${supplierId}`,
+    `${API_URL}/supplier/delete/${supplierId}`,
     {
       method: "DELETE",
       credentials: "include",

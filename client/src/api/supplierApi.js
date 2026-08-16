@@ -1,22 +1,24 @@
-export const getSupplierList = async (setSupplier,setMessage) => {
-    const res= await fetch('http://localhost:5000/supplier/list',{
-        method:'GET',
-        credentials:'include',
-      })
-      const data=await  res.json()
-     if(res.ok){
-       setSupplier(data)
-      console.log(data)
-     }
-     else{
-      console.log(data.message)
-      setMessage(data.message)
-     }
+import { API_URL } from "./apiUrl";
+
+export const getSupplierList = async (setSupplier, setMessage) => {
+  const res = await fetch(`${API_URL}/supplier/list`, {
+    method: "GET",
+    credentials: "include",
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    setSupplier(data);
+    console.log(data);
+  } else {
+    console.log(data.message);
+    setMessage(data.message);
+  }
 };
 
-
 export const createSupplier = async (supplierData) => {
-  const res = await fetch("http://localhost:5000/supplier/add", {
+  const res = await fetch(`${API_URL}/supplier/add`, {
     method: "POST",
     credentials: "include",
     headers: {

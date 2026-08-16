@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import { API_URL } from "../../api/apiUrl";
 import { 
   MdSpaceDashboard, 
   MdOutlineInventory2, 
@@ -20,10 +21,11 @@ const Navbar = () => {
 
   const handleLogout = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:5000/user/logout', {
+    const res = await fetch(`${API_URL}/user/logout`, {
       method: 'POST',
       credentials: 'include',
     });
+
     if (res.ok) {
       navigate('/login');
       setUser();
@@ -42,22 +44,26 @@ const Navbar = () => {
       </div>
       
       <nav className="sidebar-nav">
-        {user?.role==='admin' && 
+        {user?.role === 'admin' && 
         <>
-        <Link to="/" className={isActive("/")}>
-          <MdSpaceDashboard className="nav-icon" /> Dashboard
-        </Link>
+          <Link to="/" className={isActive("/")}>
+            <MdSpaceDashboard className="nav-icon" /> Dashboard
+          </Link>
         </>
         }
+
         <Link to="/products" className={isActive("/products")}>
           <MdOutlineInventory2 className="nav-icon" /> Products
         </Link>
+
         <Link to="/suppliers" className={isActive("/suppliers")}>
           <MdOutlineLocalShipping className="nav-icon" /> Suppliers
         </Link>
+
         <Link to="/purchase" className={isActive("/purchase")}>
           <MdOutlineShoppingCart className="nav-icon" /> Purchase
         </Link>
+
         <Link to="/transaction" className={isActive("/transaction")}>
           <MdOutlineReceipt className="nav-icon" /> Transaction
         </Link>
@@ -73,6 +79,7 @@ const Navbar = () => {
             <Link to="/login" className={isActive("/login")}>
               <MdLogin className="nav-icon" /> Login
             </Link>
+
             <Link to="/signup" className={isActive("/signup")}>
               <MdAppRegistration className="nav-icon" /> Signup
             </Link>

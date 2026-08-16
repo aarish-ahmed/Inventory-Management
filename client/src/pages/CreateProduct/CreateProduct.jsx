@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ProductForm from "../../components/ProductForm/ProductForm";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../api/apiUrl";
 
 const CreateProduct = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const CreateProduct = () => {
     productData.append("image", formData.image);
 
     const res = await fetch(
-      "http://localhost:5000/product/add",
+      `${API_URL}/product/add`,
       {
         method: "POST",
         credentials: "include",
@@ -63,7 +64,7 @@ const CreateProduct = () => {
   useEffect(() => {
     const getSupplier = async () => {
       const res = await fetch(
-        "http://localhost:5000/supplier/list",
+        `${API_URL}/supplier/list`,
         {
           method: "GET",
           credentials: "include",

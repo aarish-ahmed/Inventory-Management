@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductForm from "../../components/ProductForm/ProductForm";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_URL } from "../../api/apiUrl";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -31,7 +32,7 @@ const EditProduct = () => {
     const getSupplier = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/supplier/list",
+          `${API_URL}/supplier/list`,
           {
             method: "GET",
             credentials: "include",
@@ -62,7 +63,7 @@ const EditProduct = () => {
     const getProduct = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/product/${id}`,
+          `${API_URL}/product/${id}`,
           {
             method: "GET",
             credentials: "include",
@@ -161,7 +162,7 @@ const EditProduct = () => {
       }
 
       const res = await fetch(
-        `http://localhost:5000/product/update/${id}`,
+        `${API_URL}/product/update/${id}`,
         {
           method: "PATCH",
           credentials: "include",

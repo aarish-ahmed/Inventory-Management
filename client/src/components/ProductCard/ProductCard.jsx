@@ -1,13 +1,14 @@
 import { useAuth } from "../../context/authContext";
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../api/apiUrl";
 
 const ProductCard = ({ products, setProduct, showActions }) => {
   const {user}=useAuth()
   const navigate = useNavigate();
 
   const handleDelete = async (productId) => {
-    const res = await fetch(`http://localhost:5000/product/delete/${productId}`, {
+    const res = await fetch(`${API_URL}/product/delete/${productId}`, {
       method: "DELETE",
       credentials: "include",
     });

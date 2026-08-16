@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import {
-  getProductsApi,
-  purchaseProductApi,
-} from "../../api/productApi";
+import ProductForm from "../../components/ProductForm/ProductForm";
+import { useParams, useNavigate } from "react-router-dom";
+import { API_URL } from "../../api/apiUrl";
 
 const Purchase = () => {
   // ================================
@@ -86,7 +85,7 @@ const Purchase = () => {
     const getSuppliers = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/supplier/list",
+          `${API_URL}/supplier/list`,
           {
             method: "GET",
             credentials: "include",
@@ -580,7 +579,6 @@ const Purchase = () => {
 
                       </div>
 
-                    )
                   )}
 
                 </div>
@@ -1161,7 +1159,6 @@ const Purchase = () => {
         )}
 
       </div>
-
     </div>
   );
 };
