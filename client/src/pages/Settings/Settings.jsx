@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { addMemberApi, getAllUserApi } from "../../api/userApi";
+import { addMemberApi, deleteUserApi, getAllUserApi } from "../../api/userApi";
 
 const Settings = () => {
   const [allUser, setAllUser] = useState([]);
@@ -50,6 +50,24 @@ const Settings = () => {
   useEffect(() => {
     getAllUser();
   }, []);
+
+  const handleDeleteUser = async (userId) => {
+  try {
+    const { res,data } = await deleteUserApi(userId);
+
+    if(res.ok){
+      console.log(data.message);
+
+    // Remove deleted user from frontend immediately
+    setAllUser((prevUsers) =>
+      prevUsers.filter((user) => user._id !== userId)
+    );
+    }
+    
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-10">
@@ -514,7 +532,7 @@ const Settings = () => {
                           hover:text-white
                           transition
                           cursor-pointer
-                        "
+                        " onClick={(()=>handleDeleteUser(user._id))}
                       >
                         Delete
                       </button>

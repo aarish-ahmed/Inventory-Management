@@ -22,6 +22,7 @@ const loginHandler = async (req, res) => {
             const jwtToken=jwt.sign({
                 id:existingUser._id,
                 username:existingUser.username,
+                role:existingUser.role,
             },
             process.env.JWT_SECRET
         )

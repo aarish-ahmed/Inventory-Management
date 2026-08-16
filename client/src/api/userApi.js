@@ -140,3 +140,24 @@ export const getAllUserApi = async () => {
 
   return {data};
 };
+
+export const deleteUserApi = async (userId) => {
+  const res = await fetch(
+    `http://localhost:5000/user/delete/${userId}`,
+    {
+      method: "DELETE",
+      credentials: "include",
+    }
+  );
+
+  const data = await res.json();
+
+  console.log("deleteUser", data);
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return { res,data };
+};
+

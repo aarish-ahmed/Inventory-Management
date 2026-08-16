@@ -11,6 +11,7 @@ import verfiyResetOtpHandler from "../handlers/userHandlers/verifyResetOtpHandle
 import getCurrentUserHandler from "../handlers/userHandlers/getCurrentUserHandler.js";
 import addUser from "../handlers/userHandlers/addUser.js";
 import getAllUser from "../handlers/userHandlers/getAllUser.js";
+import deleteUserHandler from "../handlers/userHandlers/deleteUser.js";
 
 const userRoutes = express.Router();
 
@@ -25,5 +26,6 @@ userRoutes.post('/verify-otp',verfiyResetOtpHandler)
 userRoutes.get('/me',authMiddleware,getCurrentUserHandler)
 userRoutes.post('/add-member',authMiddleware,addUser)
 userRoutes.get('/all',authMiddleware,getAllUser)
+userRoutes.delete('/delete/:id',authMiddleware,deleteUserHandler)
 
 export default userRoutes;

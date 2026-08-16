@@ -23,6 +23,15 @@ const userSchema= mongoose.Schema({
 
     default:'staff'
     },
+    status:{
+        type: String,
+    enum:[
+        'active',
+        'inactive',
+     ],
+
+    default:'inactive'
+    },
     isVerified:{
         type:Boolean,
         default:true,

@@ -5,9 +5,11 @@ const getTransactionReceiptHandler = async (req, res) => {
   try {
     const transaction = await Transaction.findOne({
       _id: req.params.id,
-      user: req.user.id,
+     
     }).populate("user", "username");
-
+    console.log(req.params.id)
+    console.log(req.user.id)
+    console.log(transaction)
     if (!transaction) {
       return res.status(404).json({
         message: "Transaction not found",

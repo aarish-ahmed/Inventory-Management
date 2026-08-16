@@ -21,10 +21,10 @@
 
 /* Header specific styles */
 .supplier-header {
-  background-color: #f7fafc;
+  background-color: black;
   border-bottom: 2px solid #e2e8f0;
   font-weight: 700;
-  color: #2d3748;
+  color: white;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
