@@ -44,7 +44,7 @@ const Login = () => {
               name="email" 
               id="email" 
               type="email" 
-              placeholder="Enter your email" 
+              placeholder="admin@gmail.com" 
               required 
               autoComplete="off"
             />
@@ -56,7 +56,7 @@ const Login = () => {
               name="password" 
               id="password" 
               type="password" 
-              placeholder="Enter password" 
+              placeholder="admin" 
               required 
               autoComplete="new-password"
             />
