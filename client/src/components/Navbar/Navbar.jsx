@@ -80,9 +80,9 @@ const Navbar = () => {
               <MdLogin className="nav-icon" /> Login
             </Link>
 
-            <Link to="/signup" className={isActive("/signup")}>
+            {/* <Link to="/signup" className={isActive("/signup")}>
               <MdAppRegistration className="nav-icon" /> Signup
-            </Link>
+            </Link> */}
           </>
         )}
       </nav>

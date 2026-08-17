@@ -64,11 +64,11 @@ const Login = () => {
           
           <button type="submit" className="auth-button">Login</button>
         </form>
-        <p>
+        {/* <p>
   Don't have an account?{" "}
   <Link to="/signup">Sign Up</Link>{" "}
   <Link to='/send-otp'>Forget Password?</Link>
-</p>
+</p> */}
         {message && <div className="auth-message error">{message}</div>}
       </div>
     </div>
